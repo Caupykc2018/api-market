@@ -48,8 +48,7 @@ class ItemController {
 
     async delete(req, res) {
         try {
-            const result = await ItemService.delete(req.params.id, req.user.id);
-            res.status(200).json(result);
+            res.status(200).json(await ItemService.delete(req.params.id, req.user.id));
         }
         catch(e) {
             if(e.status){

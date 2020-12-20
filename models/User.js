@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
     }, {
         hooks: {
             beforeCreate: async (user) => {
-                user.password = await bcrypt.hash(password, await bcrypt.genSalt(10));
+                user.password = await bcrypt.hash(user.password, await bcrypt.genSalt(10));
             }
         }
     });

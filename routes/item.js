@@ -8,11 +8,9 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination(req, file, cb){
-        console.log('dest');
         cb(null, path.join(__dirname, '../public'));
     },
     filename(req, file, cb){
-        console.log('file');
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
